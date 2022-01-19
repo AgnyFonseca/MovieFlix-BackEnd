@@ -20,7 +20,7 @@ public class ReviewResource {
 	@Autowired
 	private ReviewService service;
 	
-	//PUT
+	//POST
 	@PostMapping
 	public ResponseEntity<ReviewDTO> insert (@RequestBody ReviewDTO dto) {
 		dto = service.insert(dto);
