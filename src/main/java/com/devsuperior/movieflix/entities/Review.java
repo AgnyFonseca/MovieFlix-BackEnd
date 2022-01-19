@@ -24,7 +24,7 @@ public class Review implements Serializable {
 	private String text;
 	
 	@ManyToOne
-	@JoinColumn(name = "movie_id")
+	@JoinColumn(name = "user_id")
 	private User user;
 	
 	@ManyToOne
