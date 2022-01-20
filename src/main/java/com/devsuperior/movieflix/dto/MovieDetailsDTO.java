@@ -24,7 +24,7 @@ public class MovieDetailsDTO {
 		synopsis = entity.getSynopsis();
 		genre = new GenreDTO(entity.getGenre());
 	}
-
+	
 	public Long getId() {
 		return id;
 	}
