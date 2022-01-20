@@ -1,10 +1,14 @@
 package com.devsuperior.movieflix.dto;
 
+import javax.validation.constraints.NotBlank;
+
 import com.devsuperior.movieflix.entities.Review;
 
 public class ReviewDTO {
 	
 	private Long id;
+	
+	@NotBlank(message = "Field cannot be empty")
 	private String text;
 	private Long movieId;
 	private UserDTO user;
