@@ -31,7 +31,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
 	private static final String[] PUBLIC = { "/oauth/token", "/h2-console/**" };
 
-	private static final String[] VISITOR_OR_MEMBER = { "/movies/**", "/genres/**", "/reviews/**" };
+	private static final String[] VISITOR_OR_MEMBER_OR_ADMIN = { "/movies/**", "/genres/**", "/reviews/**" };
+
+	private static final String[] REVIEW = { "/reviews/**" };
 
 	private static final String[] SWAGGER = {
 			"/v2/api-docs",
@@ -57,8 +59,11 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
 		http.authorizeRequests()
 				.antMatchers(PUBLIC).permitAll().antMatchers(SWAGGER).permitAll()
-				.antMatchers(HttpMethod.GET, VISITOR_OR_MEMBER).hasAnyRole("VISITOR", "MEMBER")
-				.anyRequest().hasAnyRole("MEMBER");
+				.antMatchers(HttpMethod.GET, VISITOR_OR_MEMBER_OR_ADMIN).hasAnyRole("VISITOR", "MEMBER", "ADMIN")
+				.antMatchers(HttpMethod.POST, REVIEW).hasAnyRole("MEMBER")
+				.antMatchers(HttpMethod.PUT, REVIEW).hasAnyRole("MEMBER")
+				.antMatchers(HttpMethod.DELETE, REVIEW).hasAnyRole("MEMBER", "ADMIN")
+				.anyRequest().hasAnyRole("ADMIN");
 
 		http.cors().configurationSource(corsConfigurationSource());
 	}

@@ -1,4 +1,4 @@
-package com.devsuperior.movieflix.resources;
+package com.devsuperior.movieflix.controllers;
 
 import java.net.URI;
 import java.util.List;
@@ -19,12 +19,11 @@ import com.devsuperior.movieflix.services.ReviewService;
 
 @RestController
 @RequestMapping(value = "/reviews")
-public class ReviewResource {
+public class ReviewController {
 	
 	@Autowired
 	private ReviewService service;
-	
-	//POST
+
 	@PostMapping
 	public ResponseEntity<ReviewDTO> insert(@Valid @RequestBody ReviewDTO dto) {
 		dto = service.insert(dto);
