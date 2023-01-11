@@ -63,11 +63,17 @@ public class GenreControllerIT {
 
 		result.andExpect(status().isOk());
 		result.andExpect(jsonPath("$[0].id").value(1L));
-		result.andExpect(jsonPath("$[0].name").value("Comédia"));
+		result.andExpect(jsonPath("$[0].name").value("Comedy"));
 		result.andExpect(jsonPath("$[1].id").value(2L));
-		result.andExpect(jsonPath("$[1].name").value("Terror"));
+		result.andExpect(jsonPath("$[1].name").value("Horror"));
 		result.andExpect(jsonPath("$[2].id").value(3L));
 		result.andExpect(jsonPath("$[2].name").value("Drama"));
+		result.andExpect(jsonPath("$[3].id").value(4L));
+		result.andExpect(jsonPath("$[3].name").value("Fantasy"));
+		result.andExpect(jsonPath("$[4].id").value(5L));
+		result.andExpect(jsonPath("$[4].name").value("Adventure"));
+		result.andExpect(jsonPath("$[5].id").value(6L));
+		result.andExpect(jsonPath("$[5].name").value("Suspense"));
 	}
 	
 	@Test
@@ -82,10 +88,16 @@ public class GenreControllerIT {
 
 		result.andExpect(status().isOk());
 		result.andExpect(jsonPath("$[0].id").value(1L));
-		result.andExpect(jsonPath("$[0].name").value("Comédia"));
+		result.andExpect(jsonPath("$[0].name").value("Comedy"));
 		result.andExpect(jsonPath("$[1].id").value(2L));
-		result.andExpect(jsonPath("$[1].name").value("Terror"));
+		result.andExpect(jsonPath("$[1].name").value("Horror"));
 		result.andExpect(jsonPath("$[2].id").value(3L));
-		result.andExpect(jsonPath("$[2].name").value("Drama"));		
+		result.andExpect(jsonPath("$[2].name").value("Drama"));
+		result.andExpect(jsonPath("$[3].id").value(4L));
+		result.andExpect(jsonPath("$[3].name").value("Fantasy"));
+		result.andExpect(jsonPath("$[4].id").value(5L));
+		result.andExpect(jsonPath("$[4].name").value("Adventure"));
+		result.andExpect(jsonPath("$[5].id").value(6L));
+		result.andExpect(jsonPath("$[5].name").value("Suspense"));
 	}
 }
